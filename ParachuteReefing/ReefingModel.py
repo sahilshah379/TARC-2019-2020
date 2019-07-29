@@ -5,7 +5,7 @@ tUpper = 43 # upper time bound
 tLower = 40 # lower time bound
 tTarget = 41.5 # target landing time in the time range
 tBuffer1 = 2 # time stopeed before tLower (because of the limits of the formula for k)
-tBuffer2 = 1.15 # Time length less than tLower (to decrease the final velocity of the rocket)
+tBuffer2 = 1 # Time length less than tLower (to decrease the final velocity of the rocket)
 m = 635/1000 # mass
 g = 9.80665 # gravity
 ascentTime = 6 # ground to apogee
@@ -14,7 +14,7 @@ time = tLower-math.ceil(ascentTime)-tBuffer2 # apogee to ground including buffer
 height = 245 # apogee
 deltaTime = 1 # time between each update
 
-# 0.418983747 = 0.456036731*1.225*0.5*1.5
+# 0.61450949526 = 0.45603673118*2.2*1.225*0.5
 
 def main():
 	t = time # time remaining
@@ -60,7 +60,7 @@ def main():
 				deltaH = (vi*deltaTime)+hPart
 			else:
 				deltaH = (vi*deltaTime)-hPart
-			# deltaH *= (random.randint(95,105)/100)
+			deltaH *= (random.randint(95,105)/100)
 			h -= deltaH
 		# end of model specific calculations
 
