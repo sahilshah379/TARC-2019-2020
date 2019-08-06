@@ -7,11 +7,11 @@ float pitch, roll, yaw;
 float deltat;
 
 void setup() {
-//    Serial.begin(9600);
-//    while (!Serial);
+    Serial.begin(9600);
+    while (!Serial);
   
     if (!IMU.begin()) {
-//        Serial.println("Failed to initialize IMU!");
+        Serial.println("Failed to initialize IMU!");
         while (1);
     }
 }
@@ -31,10 +31,10 @@ void loop() {
         roll = fusion.getRoll();    //you could also use getRollRadians() ecc
         yaw = fusion.getYaw();
         
-//        Serial.print("Pitch:\t"); Serial.println(pitch);
-//        Serial.print("Roll:\t"); Serial.println(roll);
-//        Serial.print("Yaw:\t"); Serial.println(yaw);
-//        Serial.println();
+        Serial.print("Pitch:\t"); Serial.println(pitch);
+        Serial.print("Roll:\t"); Serial.println(roll);
+        Serial.print("Yaw:\t"); Serial.println(yaw);
+        Serial.println();
     }
     delay(5);
 }
