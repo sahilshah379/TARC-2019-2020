@@ -21,40 +21,40 @@ double start;
 double initialAltitude;
 
 void setup() {
-    pinMode(13,HIGH);    
-    initialAltitude = getAltitude(); // m
-    start = millis();
+  pinMode(13,HIGH);    
+  initialAltitude = getAltitude(); // m
+  start = millis();
 }
 
 void loop() {
-    // deploy parachute already during ascent?
-    
-    double currentAltitude = getAltitude(); // m
-    double altitude = currentAltitude - initialAltitude; // m
+  // deploy parachute already during ascent?
+  
+  double currentAltitude = getAltitude(); // m
+  double altitude = currentAltitude - initialAltitude; // m
 
-    double temperature = getTemperature(); // *C
-    double pressure = getPressure(); // Pa
-    double now = millis();
-    double timePassed = (now-start)/1000;
+  double temperature = getTemperature(); // *C
+  double pressure = getPressure(); // Pa
+  double now = millis();
+  double timePassed = (now-start)/1000;
 
-    double timeParachute = descentTime(altitude, pressure, temperature);
-    if ((timePassed + timeParachute) > endTime) {
-        // turn servo to decrease string length
-    } else if ((timePassed + timeParachute) < endTime) {
-        // turn servo to increase string length
-    }
-    delay(10);
+  double timeParachute = descentTime(altitude, pressure, temperature);
+  if ((timePassed + timeParachute) > endTime) {
+    // turn servo to decrease string length
+  } else if ((timePassed + timeParachute) < endTime) {
+    // turn servo to increase string length
+  }
+  delay(10);
 }
 
 double descentTime(double altitude, double pressure, double temperature) {
-    double airDensity = pressure/(gasConstant*(temperature+273.15)); // kg/m^3  -  around 1.225
-    double airResistance = ((airDensity*parachuteArea)/2)*dragCoefficient; // kg/m  -  around 0.24 for air
-    double descentTime = sqrt(mass/(gravity*airResistance))*acosh(pow(e,((altitude*airResistance)/mass))); // s
-    return descentTime; // time to reach the ground if the parachute is open
+  double airDensity = pressure/(gasConstant*(temperature+273.15)); // kg/m^3  -  around 1.225
+  double airResistance = ((airDensity*parachuteArea)/2)*dragCoefficient; // kg/m  -  around 0.24 for air
+  double descentTime = sqrt(mass/(gravity*airResistance))*acosh(pow(e,((altitude*airResistance)/mass))); // s
+  return descentTime; // time to reach the ground if the parachute is open
 }
 
 double acosh(double x) {
-    return log(x+sqrt(pow(x,2)-1));
+  return log(x+sqrt(pow(x,2)-1));
 }
 
 //http://www.ambrsoft.com/Physics/FreeFall/FreeFallWairResistance.htm
