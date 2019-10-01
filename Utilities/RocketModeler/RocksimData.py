@@ -8,6 +8,11 @@ def main():
 	print(altitude)
 
 def readCSV():
+	with open('TARC-2019-2020.csv', 'r') as file:
+		fileData = file.read()
+	fileData = fileData.replace(' ,',',')
+	with open('TARC-2019-2020.csv', 'w') as file:
+		fileData = file.write(fileData)
 	with open('TARC-2019-2020.csv') as file:
 		read = csv.DictReader(file, delimiter=',')
 		for row in read:
