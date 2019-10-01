@@ -1,7 +1,10 @@
 #include <Arduino_LSM9DS1.h>
-#include <SensorFusion.h>
 
-SF fusion;
+// Earth's magnetic field varies by location. Add or subtract 
+// a declination to get a more accurate heading. Calculate 
+// your's here:
+// http://www.ngdc.noaa.gov/geomag-web/#declination
+#define DECLINATION -12.6 // Declination (degrees) in Boulder, CO.
 
 float pitch, roll, yaw;
 float deltat;
@@ -22,19 +25,30 @@ void loop() {
     IMU.readAcceleration(ax, ay, az);
     IMU.readGyroscope(gx, gy, gz);
     IMU.readMagneticField(mx, my, mz);
+
+    float roll = atan2(ay, az);
+    float pitch = atan2(-ax, sqrt(ay * ay + az * az));
+
+    float heading;
+    if (my == 0) {
+      heading = (mx < 0) ? PI : 0;
+    } else {
+      heading = atan2(mx, my);
+    }  
+    heading -= DECLINATION * PI / 180;
     
-    deltat = fusion.deltatUpdate();
-//        fusion.MahonyUpdate(gx, gy, gz, ax, ay, az, deltat);
-    fusion.MadgwickUpdate(gx, gy, gz, ax, ay, az, mx, my, mz, deltat);
+    if (heading > PI) heading -= (2 * PI);
+    else if (heading < -PI) heading += (2 * PI);
     
-    pitch = fusion.getPitch();
-    roll = fusion.getRoll();    //you could also use getRollRadians() ecc
-    yaw = fusion.getYaw();
+    heading *= 180.0 / PI;
+    pitch *= 180.0 / PI;
+    roll  *= 180.0 / PI;
     
-    Serial.print("Pitch:\t"); Serial.println(pitch);
-    Serial.print("Roll:\t"); Serial.println(roll);
-    Serial.print("Yaw:\t"); Serial.println(yaw);
-    Serial.println();
+    Serial.print("Pitch, Roll: ");
+    Serial.print(pitch, 2);
+    Serial.print(", ");
+    Serial.println(roll, 2);
+    Serial.print("Heading: "); Serial.println(heading, 2);
   }
   delay(5);
 }
