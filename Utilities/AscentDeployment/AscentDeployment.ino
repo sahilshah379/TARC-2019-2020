@@ -27,17 +27,17 @@ void setup() {
 void loop() {
   float altitude = getAltitude();
   float velocity = getVelocity(altitude);
-  if (altitude + getMaxAltitude() >= apogee/3.281) {
+  if (altitude + getMaxAltitude(velocity) >= apogee/3.281) {
     Serial.println("Deploying parachute");
     Serial.print("Time: ");
     Serial.println(prevTime/1000);
+    Serial.print("Velocity: ");
+    Serial.println(velocity);
     Serial.print("Altitude: ");
     Serial.println(altitude);
     Serial.print("Will travel ");
-    Serial.print(getMaxAltitude());
+    Serial.print(getMaxAltitude(velocity));
     Serial.println(" m after deployment");
-    Serial.print("Apogee at ");
-    Serial.println(altitude+getMaxAltitude());
     while(1) {
     }
   }
@@ -50,7 +50,7 @@ float getAltitude() {
   float altitude = ((pow((seaLevelPressure/pressure),(1/5.257))-1)*(temperature+273.15))/0.0065;
   return altitude;
 }
-float getMaxAltitude() {
+float getMaxAltitude(velocity) {
 	float vt = sqrt(mass*gravity/parachuteK);
 	float yMax = (pow(vt,2)/(2*gravity))*log((pow(velocity,2)+pow(vt,2))/(pow(vt,2)));
 	return yMax;
