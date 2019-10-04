@@ -52,7 +52,7 @@ float getAltitude() {
 }
 float getMaxAltitude() {
 	float vt = sqrt(mass*gravity/parachuteK);
-  yMax = (pow(vt,2)/(2*gravity))*math.log((pow(velocity,2)+pow(vt,2))/(pow(vt,2)));
+	float yMax = (pow(vt,2)/(2*gravity))*math.log((pow(velocity,2)+pow(vt,2))/(pow(vt,2)));
 	return yMax;
 }
 float getVelocity(float altitude) {
