@@ -28,6 +28,7 @@ def main():
 			print('Altitude: %s' %round(y*3.281,3))
 			print('Apogee: %s' %round(yTotal,3))
 			print('Time: %s' %round(t,3))
+			print('k: %s' %k)
 			break
 
 def parachuteK():
