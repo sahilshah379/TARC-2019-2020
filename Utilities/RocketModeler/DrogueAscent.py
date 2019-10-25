@@ -4,8 +4,9 @@ import csv
 flight_data = [] # need to input time, altitude, y velocity, flight angle, and k
 
 gravity = 9.78 # m/s^2
-mass = 598.28/1000 # g to kg
+mass = 574.83/1000 # g to kg
 apogee = 800
+k = 0.40222533776
 
 def main():
 	readCSV()
@@ -17,7 +18,6 @@ def main():
 		theta = (abs(flight_data[i]['Flight angle Deg.']-180))*(math.pi/180) # theta
 		v = vy/math.sin(theta) # velocity magnitude
 
-		k = parachuteK()
 		vt = math.sqrt((mass*gravity)/k)
 		yMax = getMaxAltitude(vt,vy)
 
@@ -28,14 +28,8 @@ def main():
 			print('Altitude: %s' %round(y*3.281,3))
 			print('Apogee: %s' %round(yTotal,3))
 			print('Time: %s' %round(t,3))
-			print('k: %s' %k)
+			print('Velocity: %s' %round(vy,3))
 			break
-
-def parachuteK():
-	altitude = 10
-	v = flight_data[[i for i in range(len(flight_data)) if abs(flight_data[i]['Altitude Feet']-altitude) < 1][0]]['y-Velocity Feet / Sec']/3.281
-	k = (mass*gravity)/pow(v,2)
-	return k
 
 def getMaxAltitude(vt,v0):
 	yMax = (math.pow(vt,2)/(2*gravity))*math.log((pow(v0,2)+pow(vt,2))/(pow(vt,2)))
