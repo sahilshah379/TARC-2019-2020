@@ -1,25 +1,38 @@
-#include <Arduino_LPS22HB.h> // pressure
-#include <Arduino_HTS221.h> // humidity & temperature
+#include <Arduino_LPS22HB.h>
+#include <Arduino_HTS221.h>
 
-const float gravity = 9.78;
+#define pin 10
+
+const float gravity = 9.8;
 const float mass = 598.28/1000;
 const int apogee = 800;
 const float parachuteK = 0.405124654;
 
-const float seaLevelPressure = 1019; // https://weather.us/observations/pressure-qnh.html
+const float seaLevelPressure = 1021; // https://weather.us/observations/pressure-qnh.html
 float prevAlt = 0;
 float prevTime = 0;
 
+const int refresh_interval = 3333;
+const int open_pulse = 1000;
+
 void setup() {
-  Serial.begin(9600);
-  while (!Serial);
+  pinMode(pin, OUTPUT);
+
   if (!BARO.begin()) {
-      Serial.println("Failed to initialize pressure sensor!");
-      while (1);
+      while(1) {
+        digitalWrite(pin, HIGH);
+        delay(500);
+        digitalWrite(pin, LOW);
+        delay(500);
+      }
   }
   if (!HTS.begin()) {
-      Serial.println("Failed to initialize humidity temperature sensor!");
-      while (1);
+      while(1) {
+        digitalWrite(pin, HIGH);
+        delay(500);
+        digitalWrite(pin, LOW);
+        delay(500);
+      }
   }
   prevTime = millis();
 }
@@ -28,25 +41,18 @@ void loop() {
   float altitude = getAltitude();
   float velocity = getVelocity(altitude);
   if (altitude + getMaxAltitude(velocity) >= apogee/3.281) {
-    Serial.println("Deploying parachute");
-    Serial.print("Time: ");
-    Serial.println(prevTime/1000);
-    Serial.print("Velocity: ");
-    Serial.println(velocity);
-    Serial.print("Altitude: ");
-    Serial.println(altitude);
-    Serial.print("Will travel ");
-    Serial.print(getMaxAltitude(velocity));
-    Serial.println(" m after deployment");
-    while(1) {
+    for (int i = 0; i < 120; i += 1) {
+        delayMicroseconds(open_pulse);
+        delayMicroseconds(refresh_interval-open_pulse);
     }
+    while(1) {}
   }
   delay(100);
 }
 
 float getAltitude() {
-  float temperature = HTS.readTemperature(); // temperature (celsius)
-  float pressure = BARO.readPressure() * 10; // pressure (hPa)
+  float temperature = HTS.readTemperature();
+  float pressure = BARO.readPressure()*10;
   float altitude = ((pow((seaLevelPressure/pressure),(1/5.257))-1)*(temperature+273.15))/0.0065;
   return altitude;
 }
