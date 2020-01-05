@@ -3,7 +3,7 @@
 
 const float seaLevelPressure = 1019; // https://weather.us/observations/pressure-qnh.html
 float prevAlt = 0;
-float prevTime = 0;
+double prevTime = 0;
 
 void setup() {
   Serial.begin(9600);

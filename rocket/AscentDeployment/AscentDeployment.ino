@@ -3,14 +3,14 @@
 
 #define pin 10
 
-const float gravity = 9.8;
-const float mass = 598.28/1000;
+const double gravity = 9.8;
+const double mass = 598.28/1000;
 const int apogee = 800;
-const float parachuteK = 0.405124654;
+const double parachuteK = 0.405124654;
 
-const float seaLevelPressure = 1021; // https://weather.us/observations/pressure-qnh.html
-float prevAlt = 0;
-float prevTime = 0;
+const double seaLevelPressure = 1021; // https://weather.us/observations/pressure-qnh.html
+double prevAlt = 0;
+double prevTime = 0;
 
 const int refresh_interval = 3333;
 const int open_pulse = 1000;
@@ -38,8 +38,8 @@ void setup() {
 }
 
 void loop() {
-  float altitude = getAltitude();
-  float velocity = getVelocity(altitude);
+  double altitude = getAltitude();
+  double velocity = getVelocity(altitude);
   if (altitude + getMaxAltitude(velocity) >= apogee/3.281) {
     for (int i = 0; i < 120; i += 1) {
         delayMicroseconds(open_pulse);
@@ -50,19 +50,19 @@ void loop() {
   delay(100);
 }
 
-float getAltitude() {
-  float temperature = HTS.readTemperature();
-  float pressure = BARO.readPressure()*10;
-  float altitude = ((pow((seaLevelPressure/pressure),(1/5.257))-1)*(temperature+273.15))/0.0065;
+double getAltitude() {
+  double temperature = HTS.readTemperature();
+  double pressure = BARO.readPressure()*10;
+  double altitude = ((pow((seaLevelPressure/pressure),(1/5.257))-1)*(temperature+273.15))/0.0065;
   return altitude;
 }
-float getMaxAltitude(velocity) {
-	float vt = sqrt(mass*gravity/parachuteK);
-	float yMax = (pow(vt,2)/(2*gravity))*log((pow(velocity,2)+pow(vt,2))/(pow(vt,2)));
+double getMaxAltitude(double velocity) {
+	double vt = sqrt(mass*gravity/parachuteK);
+	double yMax = (pow(vt,2)/(2*gravity))*log((pow(velocity,2)+pow(vt,2))/(pow(vt,2)));
 	return yMax;
 }
-float getVelocity(float altitude) {
-  float velocity = 1000*(altitude-prevAlt)/((millis()-prevTime));
+double getVelocity(double altitude) {
+  double velocity = 1000*(altitude-prevAlt)/((millis()-prevTime));
   prevAlt = altitude;
   prevTime = millis();
   return velocity;
