@@ -1,0 +1,12 @@
+[submodule "libraries/Arduino_LPS22HB"]
+	path = libraries/Arduino_LPS22HB
+	url = https://github.com/arduino-libraries/Arduino_LPS22HB
+[submodule "libraries/Arduino_HTS221"]
+	path = libraries/Arduino_HTS221
+	url = https://github.com/arduino-libraries/Arduino_HTS221
+[submodule "libraries/Arduino_LSM9DS1"]
+	path = libraries/Arduino_LSM9DS1
+	url = https://github.com/arduino-libraries/Arduino_LSM9DS1
+[submodule "libraries/Servo"]
+	path = libraries/Servo
+	url = https://github.com/arduino-libraries/Servo
