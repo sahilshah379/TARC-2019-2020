@@ -2,9 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Example1",
+            "label": "altimeter",
             "type": "shell",
-            "command": "arduino-cli compile -v -b arduino:avr:uno examples/Example1_BasicReadings",
+            "command": "arduino-cli compile -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/src/Altimeter",
             "group": "build",
             "isBackground": false,
             "presentation": {
@@ -17,9 +17,9 @@
             "problemMatcher": []
         },
         {
-            "label": "Example1-program",
+            "label": "altimeter-program",
             "type": "shell",
-            "command": "arduino-cli upload -p COM18 -v --fqbn arduino:avr:uno examples/Example1_BasicReadings",
+            "command": "arduino-cli upload -p /dev/cu.usbmodem14301 -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/src/Altimeter",
             "group": "test",
             "isBackground": false,
             "presentation": {

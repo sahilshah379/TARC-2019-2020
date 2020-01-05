@@ -20,7 +20,7 @@ void setup() {
 }
 
 void loop() {
-  double ax, ay, az, gx, gy, gz, mx, my, mz;
+  float ax, ay, az, gx, gy, gz, mx, my, mz;
   if (IMU.accelerationAvailable() && IMU.gyroscopeAvailable() && IMU.magneticFieldAvailable()) {
     IMU.readAcceleration(ax, ay, az);
     IMU.readGyroscope(gx, gy, gz);

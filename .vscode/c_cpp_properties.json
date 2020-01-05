@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/**",
+                "/usr/local/Cellar/gcc/**",
                 "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.3/cores/arduino/**",
                 "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.3/libraries/PDM/src",
                 "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.3/libraries/SPI",
@@ -18,14 +19,14 @@
                 "UNICODE",
                 "_UNICODE",
                 "USBCON",
-                "ARDUINO_ARCH_AVR",
-                "ARDUINO_AVR_MEGA2560",
+                "ARDUINO_ARCH_MBED",
+                "ARDUINO_NANO33BLE",
                 "ARDUINO=10800"
             ],
             "macFrameworkPath": [
                 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
             ],
-            "compilerPath": "/Users/sahilshah/Library/Arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino5/bin/avr-gcc",
+            "compilerPath": "/usr/bin/clang",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "clang-x64"

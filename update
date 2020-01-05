@@ -1,13 +1,13 @@
 #!/bin/bash
 
 git fetch Arduino_HTS221 master
-git subtree pull --prefix libs/Arduino_HTS221 Arduino_HTS221 master --squash
+git subtree pull --prefix lib/Arduino_HTS221 Arduino_HTS221 master --squash
 
 git fetch Arduino_LPS22HB master
-git subtree pull --prefix libs/Arduino_LPS22HB Arduino_LPS22HB master --squash
+git subtree pull --prefix lib/Arduino_LPS22HB Arduino_LPS22HB master --squash
 
 git fetch Arduino_LSM9DS1 master
-git subtree pull --prefix libs/Arduino_LSM9DS1 Arduino_LSM9DS1 master --squash
+git subtree pull --prefix lib/Arduino_LSM9DS1 Arduino_LSM9DS1 master --squash
 
 git fetch Servo master
-git subtree pull --prefix libs/Servo Servo master --squash
+git subtree pull --prefix lib/Servo Servo master --squash

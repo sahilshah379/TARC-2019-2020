@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 #define pin 10
 
 const int refresh_interval = 3333;
