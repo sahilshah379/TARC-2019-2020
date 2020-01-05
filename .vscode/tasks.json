@@ -4,23 +4,8 @@
         {
             "label": "altimeter",
             "type": "shell",
-            "command": "arduino-cli compile -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/src/Altimeter",
+            "command": "mbed compile -t GCC_ARM -m ARDUINO_NANO33BLE --source src/Altimeter --source mbed-os --build BUILD/src/Altimeter",
             "group": "build",
-            "isBackground": false,
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "altimeter-program",
-            "type": "shell",
-            "command": "arduino-cli upload -p /dev/cu.usbmodem14301 -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/src/Altimeter",
-            "group": "test",
             "isBackground": false,
             "presentation": {
                 "echo": true,

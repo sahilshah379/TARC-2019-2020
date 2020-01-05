@@ -1,4 +1,9 @@
 .vscode/
 *.o
 *.out
+# *.lib
 *.DS_Store
+
+mbed-os/
+*.mbed
+mbed_settings.py
