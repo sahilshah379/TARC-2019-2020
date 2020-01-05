@@ -4,7 +4,7 @@
         {
             "label": "altimeter",
             "type": "shell",
-            "command": "mbed compile -t GCC_ARM -m ARDUINO_NANO33BLE --source src/Altimeter --source mbed-os --build BUILD/src/Altimeter",
+            "command": "mbed compile -t GCC_ARM -i /lib -m ARDUINO_NANO33BLE --source src/Altimeter --source mbed-os --build BUILD/src/Altimeter",
             "group": "build",
             "isBackground": false,
             "presentation": {
