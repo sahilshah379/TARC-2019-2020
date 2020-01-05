@@ -1,6 +1,5 @@
 #include <Arduino_LPS22HB.h>
 #include <Arduino_HTS221.h>
-#include <h>
 
 const double mass = 630.0/1000; // kg
 const double referenceArea = PI*pow((.155*2.54/2),2) - PI*pow((.06*2.54/2),2); // m^2

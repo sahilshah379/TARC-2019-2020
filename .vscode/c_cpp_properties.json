@@ -3,24 +3,22 @@
         {
             "name": "Mac",
             "includePath": [
-                "/Users/sahilshah/Library/Arduino15/packages/arduino/tools/**",
-                "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.2/**",
-                "/Applications/Arduino.app/Contents/Java/tools/**",
-                "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/**",
-                "${workspaceFolder}",
-                "/Users/sahilshah/"
+                "${workspaceFolder}/**",
+                "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/avr/1.8.2/cores/arduino",
+                "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/avr/1.8.2/libraries/EEPROM/src",
+                "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/avr/1.8.2/libraries/HID/src",
+                "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/avr/1.8.2/libraries/SoftwareSerial/src",
+                "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/avr/1.8.2/libraries/SPI/src",
+                "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/avr/1.8.2/libraries/Wire/src"
             ],
             "defines": [],
             "macFrameworkPath": [
                 "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
             ],
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "/Users/sahilshah/Library/Arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino5/bin/avr-gcc",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "clang-x64",
-            "forcedInclude": [
-                "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.2/cores/arduino/Arduino.h"
-            ]
+            "intelliSenseMode": "clang-x64"
         }
     ],
     "version": 4
