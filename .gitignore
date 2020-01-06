@@ -1,8 +1,9 @@
-.vscode/
 *.o
 *.out
-# *.lib
 *.DS_Store
+
+.vscode/
+*.code-workspace
 
 mbed-os/
 *.mbed
