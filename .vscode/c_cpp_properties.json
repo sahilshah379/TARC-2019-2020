@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/local/Cellar/gcc/**",
+                "/Users/sahilshah/Development/Arduino/libraries/**",
                 "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.4/cores/arduino/**",
                 "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.4/libraries/PDM/src",
                 "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.4/libraries/SPI",
