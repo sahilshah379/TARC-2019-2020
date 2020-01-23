@@ -1,6 +1,8 @@
 *.o
 *.out
 *.DS_Store
+*.bin
+*.elf
 
 .vscode/
 *.code-workspace

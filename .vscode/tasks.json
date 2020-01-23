@@ -2,9 +2,24 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "test",
+            "type": "shell",
+            "command": "arduino-cli compile -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/src/Test",
+            "group": "build",
+            "isBackground": false,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "altimeter",
             "type": "shell",
-            "command": "arduino-cli compile -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/rocket/AltimeterTest",
+            "command": "arduino-cli compile -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/src/AltimeterTest",
             "group": "build",
             "isBackground": false,
             "presentation": {
@@ -19,7 +34,37 @@
         {
             "label": "altimeter-program",
             "type": "shell",
-            "command": "arduino-cli upload -p /dev/cu.usbmodem14301 -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/rocket/AltimeterTest",
+            "command": "arduino-cli upload -p /dev/cu.usbmodem14301 -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/src/AltimeterTest",
+            "group": "test",
+            "isBackground": false,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "decoupler",
+            "type": "shell",
+            "command": "arduino-cli compile -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/src/DecouplerTest",
+            "group": "build",
+            "isBackground": false,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "decoupler-program",
+            "type": "shell",
+            "command": "arduino-cli upload -p /dev/cu.usbmodem14301 -v --fqbn arduino:mbed:nano33ble /Users/sahilshah/Programs/Rocketry/TARC-2019-2020/src/DecouplerTest",
             "group": "test",
             "isBackground": false,
             "presentation": {
