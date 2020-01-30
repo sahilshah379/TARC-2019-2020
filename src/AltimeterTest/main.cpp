@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <string.h>
 #include "Altimeter.h"
 
 rocket::Altimeter altimeter;

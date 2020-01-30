@@ -5,6 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/local/Cellar/gcc/**",
+                "/usr/local/include/c++/4.7.1/**",
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/**",
                 "/Users/sahilshah/Development/Arduino/libraries/**",
                 "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.4/cores/arduino/**",
                 "/Users/sahilshah/Library/Arduino15/packages/arduino/hardware/mbed/1.1.4/libraries/PDM/src",
@@ -23,9 +25,6 @@
                 "ARDUINO_NANO33BLE",
                 "ARDUINO=10800",
                 "DEVICE_I2C"
-            ],
-            "macFrameworkPath": [
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
             ],
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c11",
