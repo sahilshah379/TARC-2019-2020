@@ -11,7 +11,7 @@ void setup() {
     // Serial.println("Test");
 
     if (!altimeter.init()) {
-        Serial.println("Failure to initialization altimeter");
+        Serial.println("Failed initializing the altimeter");
         while(1);
     }
 }

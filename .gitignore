@@ -4,11 +4,7 @@
 *.bin
 *.elf
 
-.vscode/
 *.code-workspace
 
 .build/
-
-mbed-os/
-*.mbed
-mbed_settings.py
+.vscode/

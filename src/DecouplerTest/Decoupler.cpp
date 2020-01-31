@@ -13,7 +13,7 @@ namespace rocket {
     }
 
     void Decoupler::open() {
-        _pos = constants::RocketConstants::CLOSE_POS;
+        _pos = constants::RocketConstants::OPEN_POS;
         decoupler.write(_pos);
     }
     void Decoupler::close() {
