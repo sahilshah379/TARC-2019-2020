@@ -1,27 +1,27 @@
-#include <Arduino.h>
-#include <string.h>
-#include "Altimeter.h"
+// #include <Arduino.h>
+// #include <string.h>
+// #include "Altimeter.h"
 
-rocket::Altimeter altimeter;
+// rocket::Altimeter altimeter;
 
-void setup() {
-    Serial.begin(9600);
-    while (!Serial);
+// void setup() {
+//     Serial.begin(9600);
+//     while (!Serial);
 
-    // Serial.println("Test");
+//     // Serial.println("Test");
 
-    if (!altimeter.init()) {
-        Serial.println("Failed initializing the altimeter");
-        while(1);
-    }
-}
+//     if (!altimeter.init()) {
+//         Serial.println("Failed initializing the altimeter");
+//         while(1);
+//     }
+// }
 
-void loop() {
-    double altitude = altimeter.altitude();
-    Serial.println(altitude);
-}
+// void loop() {
+//     double altitude = altimeter.altitude();
+//     Serial.println(altitude);
+// }
 
-int main () {
-    setup ();
-    while (1) loop();
-}
+// int main () {
+//     setup ();
+//     while (1) loop();
+// }

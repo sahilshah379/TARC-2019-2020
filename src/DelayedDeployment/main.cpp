@@ -1,19 +1,16 @@
 #include <Arduino.h>
 #include <string.h>
 #include "Altimeter.h"
-
+#include "Decoupler.h"
 rocket::Altimeter altimeter;
+rocket::Decoupler d;
 
 void setup() {
-    Serial.begin(9600);
-    while (!Serial);
-
-    // Serial.println("Test");
-
     if (!altimeter.init()) {
         Serial.println("Failed initializing the altimeter");
         while(1);
     }
+    d.init();
 }
 
 void loop() {
@@ -21,7 +18,7 @@ void loop() {
     Serial.println(altitude);
 }
 
-// int main () {
-//     setup ();
-//     while (1) loop();
-// }
+int main () {
+    setup ();
+    while (1) loop();
+}
