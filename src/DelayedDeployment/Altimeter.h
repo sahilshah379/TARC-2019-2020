@@ -15,6 +15,8 @@ namespace rocket {
         public:
         Altimeter();
         Altimeter(double p0);
+        void setLastAltitude(double lastAlt);
+        double getLastAltitude();
 
         bool init();
         double altitude();

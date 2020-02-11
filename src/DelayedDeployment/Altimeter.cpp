@@ -10,6 +10,7 @@ namespace rocket {
 
     bool Altimeter::init() {
         if (BARO.begin() && HTS.begin()) {
+            _lastAltitude=altitude();
             return true;
         }
         return false;
@@ -19,7 +20,6 @@ namespace rocket {
         float temperature = HTS.readTemperature(); // temperature (celsius)
         float pressure = BARO.readPressure() * 10; // pressure (hPa)
         double altitude = ((pow((_p0/pressure),(1/5.257))-1)*(temperature+273.15))/0.0065;
-        _lastAltitude = altitude;
         return altitude;
     }
 
@@ -28,7 +28,10 @@ namespace rocket {
         return velocity;
     }
 
-    double Altimeter::lastAltitude() {
+    void Altimeter::setLastAltitude(double lastAlt) {
+        _lastAltitude = lastAlt;
+    }
+    double Altimeter::getLastAltitude() {
         return _lastAltitude;
     }
 
